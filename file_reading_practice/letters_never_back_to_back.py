@@ -53,3 +53,40 @@ Sorted -> ['b', 'd', 'e', 'h', 'k', 'm', 'n',
 =================================================
 
 """
+def main():
+    # Step 1: Get user input
+    print("Enter words (one per line). Press Enter twice to finish:")
+    words = []
+    while True:
+        word = input().strip()
+        if word == "":
+            break
+        words.append(word)
+    
+    if not words:
+        print("No words entered.")
+        return
+    
+    # Step 2: Create sets to track seen letters and doubled letters
+    seen = set()
+    doubled = set()
+    
+    # Step 3: Process each word
+    for word in words:
+        for i in range(len(word)):
+            letter = word[i]
+            seen.add(letter)
+            # Check for back-to-back letters
+            if i > 0 and word[i] == word[i - 1]:
+                doubled.add(letter)
+    
+    # Step 4: Calculate letters that never appear back-to-back
+    result = sorted(seen - doubled)
+    
+    # Step 5: Print the result
+    print("Letters that never appear back-to-back:")
+    print(result)
+if __name__ == "__main__":
+    main()
+
+

@@ -51,3 +51,32 @@ Explanation:
 =================================================
 
 """
+def is_palindrome(word):
+    return word == word[::-1]
+def main():
+    # Step 1: Get user input
+    print("Enter words (one per line). Press Enter twice to finish:")
+    words = []
+    while True:
+        word = input().strip()
+        if word == "":
+            break
+        words.append(word)
+    
+    if not words:
+        print("No words entered.")
+        return
+    
+    # Step 2: Check for palindromes and print them
+    palindrome_count = 0
+    print("Palindrome words:")
+    for word in words:
+        if is_palindrome(word):
+            print(word)
+            palindrome_count += 1
+    
+    print(f"Total palindromes: {palindrome_count}")
+
+if __name__ == "__main__":
+    main()
+

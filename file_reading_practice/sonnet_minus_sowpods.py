@@ -58,3 +58,37 @@ After sorting -> ['a', 'compare', 'i', 'to'].
 =================================================
 
 """
+def main():
+      # Step 1: Get sowpods words from user
+      print("Enter SOWPODS words (one per line). Press Enter twice to finish:")
+      sowpods_words = set()
+      while True:
+            word = input().strip()
+            if word == "":
+                  break
+            sowpods_words.add(word)
+      
+      # Step 2: Get sonnet words from user
+      print("Enter SONNET words (one per line). Press Enter twice to finish:")
+      sonnet_words = set()
+      while True:
+            word = input().strip()
+            if word == "":
+                  break
+            sonnet_words.add(word)
+      
+      if not sonnet_words:
+            print("No words entered.")
+            return
+      
+      # Step 3: Find words that are in sonnet but not in sowpods
+      unique_sonnet_words = sorted(sonnet_words - sowpods_words)
+      
+      # Step 4: Print the results
+      print("Words in sonnet but not in sowpods:")
+      print(unique_sonnet_words)
+      print(f"Total: {len(unique_sonnet_words)}")
+if __name__ == "__main__":
+      main()
+
+
